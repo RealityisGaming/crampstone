@@ -1,0 +1,11 @@
+{
+    "version": 3,
+    "mappings": "AEAA,AAAA,OAAO,CAAC;EACJ,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,WAAW;CACrC;;AFAD,AAAA,MAAM,CAAC;EACH,MAAM,EAAE,aAAa;CACxB",
+    "sources": [
+        "main.scss",
+        "jobs.scss",
+        "characters.scss"
+    ],
+    "names": [],
+    "file": "main.css"
+}

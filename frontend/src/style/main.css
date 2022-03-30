@@ -1,0 +1,11 @@
+.create {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.paper {
+  border: 1px solid red;
+}
+/*# sourceMappingURL=main.css.map */
