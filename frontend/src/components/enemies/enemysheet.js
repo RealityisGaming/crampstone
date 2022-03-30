@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import axios from "axios";
+import navigate from "hookrouter";
 
 
-import CharacterItem from './characteritem'
-import CharacterForm from '../forms/somethingform'
+import EnemyItem from "./slime"
+import EnemyForm from '../forms/enemyforms/enemyform';
 
-export default class CharacterSheet extends Component {
+export default class EnemySheet extends Component {
     constructor() {
         super()
 
         this.state = {
-            characters:[]
+            enemies:[]
         }
 
         this.handleMap = this.handleMap.bind(this);
@@ -18,19 +19,19 @@ export default class CharacterSheet extends Component {
         this.handleSubmission = this.handleSubmission.bind(this);
     }
 
-
-    handleSubmission(character) {
+    handleSubmission(enemy) {
         this.setState({
-            characters: [character].concat(this.state.characters)
+            enemies: [enemy].concat(this.state.enemies)
         })
+        navigate("/")
     }
 
     handleDelete(id) {
-        axios.delete(`http://localhost:5000/character/${id}`)
+        axios.delete(`http://localhost:5000/enemy/${id}`)
         .then(response => {
             this.setState({
-                characters: this.state.characters.filter(character => {
-                    return character.id !== id
+                enemies: this.state.enemies.filter(enemy => {
+                    return enemy.id !== id
                 })
             })
             return response.data
@@ -40,12 +41,12 @@ export default class CharacterSheet extends Component {
 
     }
 
-    charactersAPICall() {
-        axios.get('http://localhost:5000/characters')
+    enemiesAPICall() {
+        axios.get('http://localhost:5000/enemy')
         .then(response => {
             console.log(response.data);
             this.setState({
-                characters: response.data
+                enemies: response.data
             })
         }).catch(error => {
             console.log(error);
@@ -53,13 +54,13 @@ export default class CharacterSheet extends Component {
     }
 
     handleMap() {
-        return this.state.characters.map(character => {
-            return <CharacterItem key = {character.id} character={character} handleDelete={this.handleDelete}/>
+        return this.state.enemies.map(enemy => {
+            return <EnemyItem key = {enemy.id} enemy={enemy} handleDelete={this.handleDelete}/>
         })
     }
 
     componentDidMount() {
-        this.charactersAPICall()
+        this.enemiesAPICall()
     }
 
 
@@ -67,7 +68,7 @@ export default class CharacterSheet extends Component {
         return (
             <div>
                 <div>
-                    <CharacterForm handleSubmission={this.handleSubmission} />
+                    <EnemyForm handleSubmission={this.handleSubmission} />
                 </div>
                 {this.handleMap()}
                 

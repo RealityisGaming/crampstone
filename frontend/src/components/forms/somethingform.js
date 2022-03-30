@@ -59,12 +59,14 @@ export default class CharacterForm extends Component {
     return (
       <div>
             <form onSubmit={this.handleSubmit} className="create">
-                <input type="text" name='name' placeholder="You're name" value={this.state.name} onChange={this.handleChange} />
-                <input type="text" name='job' placeholder="You're job" value={this.state.job} onChange={this.handleChange} />
-                <input type="text" name='skill' placeholder="You're skil"l value={this.state.skill} onChange={this.handleChange} />
-                <input type="text" name='skill_two' placeholder="You're skill two "value={this.state.skill_two} onChange={this.handleChange} />
-                <input type="text" name='skill_three' placeholder="You're skill three" value={this.state.skill_three} onChange={this.handleChange} />
-                <button>Whatever</button>
+                <input className='data' type="text" name='name' placeholder="Your name" value={this.state.name} onChange={this.handleChange} />
+                <input className='data' type="text" name='job' placeholder="Your job" value={this.state.job} onChange={this.handleChange} />
+                <input className='data' type="text" name='skill' placeholder="Your skill" value={this.state.skill} onChange={this.handleChange} />
+                <input className='data' type="text" name='skill_two' placeholder="Your second skill"value={this.state.skill_two} onChange={this.handleChange} />
+                <input className='data' type="text" name='skill_three' placeholder="Your third skill" value={this.state.skill_three} onChange={this.handleChange} />
+                <br/>
+                <button className='submit-me'>Whatever</button>
+
             </form>
       </div>
     )

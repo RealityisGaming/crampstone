@@ -12,10 +12,34 @@ db = SQLAlchemy(app)
 ma = Marshmallow(app)
 CORS(app, resources={r'/*': {'origins': '*'}})
 
+# class Enemy(db.Model):
+#     id = db.Column(db.Integer, primary_key = True)
+#     named = db.Column(db.String(52), nullable= False)
+#     family = db.Column(db.String, nullable= False)
+#     damage = db.Column(db.Integer, nullable= False)
+#     skills = db.Column(db.String, nullable= False)
+#     skills_two = db.Column(db.String, nullable= False)
+#     skills_three = db.Column(db.String, nullable= False)
+
+#     def __init__(self, named, family, damage, skills, skills_two, skills_three):
+#         self.named = named
+#         self.family = family
+#         self.damage = damage
+#         self.skills = skills
+#         self.skills_two = skills_two
+#         self.skills_three = skills_three
+
+# class EnemySchema(ma.Schema):
+#     class Meta:
+#         fields = ("id","named","family","damage","skills","skills_two","skills_three")
+
+# enemy_schema = EnemySchema()
+# enemies_schema = EnemySchema(many = True)
+
 
 class Character(db.Model):
     id = db.Column(db.Integer, primary_key = True)
-    name = db.Column(db.String(16), nullable = False)
+    name = db.Column(db.String(16), unique= True, nullable = False)
     job = db.Column(db.String, nullable = False)
     level = db.Column(db.Integer, default = 1)
     xp = db.Column(db.Integer, default = 0)
@@ -43,6 +67,27 @@ characters_schema = CharacterSchema(many = True)
 @app.route("/")
 def homepage():
     return "string"
+
+@app.route("/battles")
+def attack_time():
+    enemies = db.session.query(Enemy().all)
+
+    return jsonify(enemies_schema.dump(enemies))
+
+# @app.route("/enemy", methods = ["POST"])
+# def enemies():
+#     enemy_data = request.get_json()
+#     named = enemy_data.get("named")
+#     family = enemy_data.get("family")
+#     damage = enemy_data.get("damage")
+#     skills = enemy_data.get("skills")
+#     skills_two = enemy_data.get("skills_two")
+#     skills_three = enemy_data.get("skills_three")
+
+#     new_enemy = Enemy(named, family, damage, skills, skills_two, skills_three)
+#     db.session.add(new_enemy)
+#     db.session.commit()
+#     return enemy_schema.jsonify(new_enemy)
 
 @app.route("/characters")
 def get_over_here():

@@ -4,7 +4,7 @@ export default function CharacterItem(props) {
     // Destructing props
     const {id, name, job, skill, skill_two, skill_three} = props.character
   return (
-    <div>
+    <div className = "papers">
         <div className='paper'>
             <p>{id}</p>
             <p>{name}</p>
@@ -12,7 +12,8 @@ export default function CharacterItem(props) {
             <p>{skill}</p>
             <p>{skill_two}</p>
             <p>{skill_three}</p>
-            <button onClick={() => props.handleDelete(id)}>Press me</button>
+            <button className = "delete" onClick={() => props.handleDelete(id)}>Press me</button>
+            <button className='fighter' onClick={() => location.href = 'http://localhost:3000/battles'}>Fight Me</button>
         </div>
     </div>
   )

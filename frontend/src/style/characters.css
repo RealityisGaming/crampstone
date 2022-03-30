@@ -1,10 +1,36 @@
 .create {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+}
+
+.create .data {
+  font-size: 1.36rem;
+}
+
+.create .submit-me {
+  background-color: lightgreen;
+  width: 85px;
+}
+
+.papers {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  border: 1px solid red;
+  background-image: -webkit-gradient(linear, left top, right top, from(orange), to(hotpink));
+  background-image: linear-gradient(to right, orange, hotpink);
+  color: black;
+}
+
+.papers .delete {
+  background-color: red;
+}
+
+.papers .fighter {
+  background-color: green;
 }
 /*# sourceMappingURL=characters.css.map */

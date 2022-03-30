@@ -1,0 +1,5 @@
+body {
+  background-image: -webkit-gradient(linear, right top, left top, from(orange), to(hotpink));
+  background-image: linear-gradient(to left, orange, hotpink);
+}
+/*# sourceMappingURL=base.css.map */

@@ -1,4 +1,30 @@
 .create {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+
+    .data {
+        font-size: 1.36rem;
+    }
+    .submit-me {
+        background-color: lightgreen;
+        width: 85px;
+    }
+}
+
+.papers {
+    display: grid;
+    grid-template-columns:  repeat(3, 1fr);
+    border: 1px solid red;
+    background-image: linear-gradient(to right, orange, hotpink);
+
+    color: black;
+
+    .delete {
+        background-color: red;
+    }
+
+    .fighter {
+        background-color: green;
+    }
 }

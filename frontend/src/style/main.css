@@ -1,11 +1,48 @@
 .create {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
 }
 
-.paper {
+.create .data {
+  font-size: 1.36rem;
+}
+
+.create .submit-me {
+  background-color: lightgreen;
+}
+
+.papers {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   border: 1px solid red;
+  background-image: -webkit-gradient(linear, left top, right top, from(orange), to(hotpink));
+  background-image: linear-gradient(to right, orange, hotpink);
+  color: black;
+}
+
+.papers .delete {
+  background-color: red;
+}
+
+.papers .fighter {
+  background-color: green;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  text-decoration: none;
+}
+
+body {
+  background-image: -webkit-gradient(linear, right top, left top, from(orange), to(hotpink));
+  background-image: linear-gradient(to left, orange, hotpink);
 }
 /*# sourceMappingURL=main.css.map */
