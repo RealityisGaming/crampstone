@@ -17,7 +17,11 @@ export default class HealthBar extends React.Component {
   }
 
   endBattle() {
-    this.state.hp === 0 ? this.props.handleModalClose : null;
+    if(this.state.hp === 0) {
+      this.props.handleModalClose; 
+    }else {
+      null
+    }  
   }
   
   setBasic(amount) {
@@ -32,7 +36,8 @@ export default class HealthBar extends React.Component {
     let endOfBattle = this.endBattle;
     let newHealth = (this.state.hp);
 
-    console.log(newHealth)
+    console.log(this.endBattle)
+    console.log(this.state.hp)
     
     return (
       <div>

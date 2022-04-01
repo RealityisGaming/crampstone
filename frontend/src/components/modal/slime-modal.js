@@ -3,7 +3,6 @@ import ReactModal from 'react-modal'
 
 
 import BattleForm from '../battle/battleform';
-import HealthBar from '../battle/healthbar';
 
 
 import slime from "../../../static/assets/images/enemies/slime.jpg";
@@ -25,7 +24,7 @@ export default class SlimeModal extends Component {
           right: "auto",
           marginRight: "-50%",
           transform: "translate(-50% ,-50%",
-          width: "800px"
+          width: "800px",
         },
         overlay: {
           backgroundColor: "rgba(1, 1, 1, 0.75)"
