@@ -30,6 +30,8 @@ export default class battle extends Component {
     })
 
   }
+  // ahello
+  
 
   handleModal() {
     this.setState({
