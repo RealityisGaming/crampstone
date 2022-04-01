@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
 export default class CharacterForm extends Component {
     constructor(props) {
         super(props);
@@ -8,12 +9,15 @@ export default class CharacterForm extends Component {
         this.state = {
             name: '',
             job: '',
+            level: '',
             skill: '',
             skill_two: '',
-            skill_three: ''
+            skill_three: '',
+            picture: ''
         }
         this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)        
+        
     }
 
     // hanldeDropdown() {
@@ -43,11 +47,12 @@ export default class CharacterForm extends Component {
         })
         .then(response => {
             this.setState({
-                name: '',
-                job: '',
-                skill: '',
-                skill_two: '',
-                skill_three: ''
+                name: 'Character Name: ',
+                job: 'Class: ',
+                level: 'Level: ',
+                 skill: 'Basic: ',
+                skill_two: 'Secondary: ',
+                skill_three: 'Ultimate: ',
             })
             this.props.handleSubmission(response.data)
         }).catch(error => [
@@ -55,6 +60,8 @@ export default class CharacterForm extends Component {
         ])
     }
 
+
+    
   render() {
     return (
       <div>
@@ -64,6 +71,7 @@ export default class CharacterForm extends Component {
                 <input className='data' type="text" name='skill' placeholder="Your skill" value={this.state.skill} onChange={this.handleChange} />
                 <input className='data' type="text" name='skill_two' placeholder="Your second skill"value={this.state.skill_two} onChange={this.handleChange} />
                 <input className='data' type="text" name='skill_three' placeholder="Your third skill" value={this.state.skill_three} onChange={this.handleChange} />
+                {/* <input className='data' type="file" name='character_image'onChange={this.handleChange} /> */}
                 <br/>
                 <button className='submit-me'>Whatever</button>
 

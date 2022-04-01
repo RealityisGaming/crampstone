@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
 
 import SlimeModal from '../modal/slime-modal';
-import GoblinModal from '../modal/goblin-modal';
-import LizdaranModal from '../modal/lizdaran-modal';
 
 import slime from "../../..//static/assets/images/enemies/slime.jpg"
+import lizdaran from "../../../static/assets/images/enemies/minwook-park-lizard3fh.jpg"
+import goblin from "../../../static/assets/images/enemies/lizard-man-of-scape-ore-swamp-dungeons-dragons-art-png-favpng-znL0c8J5SNw2fVrcnJqZ3rJmw.jpg"
 
 export default class battle extends Component {
   constructor() {
@@ -16,7 +15,15 @@ export default class battle extends Component {
 
     this.handleModal = this.handleModal.bind(this);
     this.handleModalClose = this.handleModalClose.bind(this);
+    this.handleSlimesModal = this.handleSlimesModal.bind(this)
   }
+
+  handleSlimesModal() {
+    this.setState({ 
+      modalIsOpen: this.handleModal
+    })
+  }
+
   handleModalClose() {
     this.setState({
       modalIsOpen: false
@@ -35,16 +42,12 @@ export default class battle extends Component {
 
   render() {
     return (
-      <div>
-        Pick your enemy
+      <div className='helper'>
+        {/* Pick your enemy */}
 
         <SlimeModal handleModalClose={this.handleModalClose} modalIsOpen={this.state.modalIsOpen}/>
-        <LizdaranModal handleModalClose={this.handleModalClose} modalIsOpen={this.state.modalIsOpen}/>
-        <GoblinModal handleModalClose={this.handleModalClose} modalIsOpen={this.state.modalIsOpen}/>
-        <form className='btn enemy-pick'>
-          <a className='slime' onClick={this.handleModal}>Slime</a>
-          <a onClick={this.handleModal}>Lizdaran</a>
-          <a onClick={this.handleModal}>Goblin</a>
+        <form className='enemy-pick'>
+          <a className="slime" onClick={this.handleSlimesModal}> BATTLE TIME</a>
         </form>
       </div>
     )

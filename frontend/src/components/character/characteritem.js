@@ -2,12 +2,14 @@ import React from 'react'
 
 export default function CharacterItem(props) {
     // Destructing props
-    const {id, name, job, skill, skill_two, skill_three} = props.character
+    const {id, name, job, level, hp, skill, skill_two, skill_three} = props.character
   return (
     <div className = "papers">
         <div className='paper'>
             <p>{id}</p>
             <p>{name}</p>
+            <p>{level}</p>
+            <p>{hp}</p>
             <p>{job}</p>
             <p>{skill}</p>
             <p>{skill_two}</p>

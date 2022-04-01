@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function EnemyItem(props) {
     // Destructing props
-    const {id, named, family, skills, skills_two, skills_three} = props.enemy
+    const {id, named, family, damage, skills, skills_two, skills_three} = props.enemy
   return (
     <div>
         <div className='enemy-paper'>
